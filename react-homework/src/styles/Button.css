@@ -1,0 +1,17 @@
+.primary {
+    color: blue;
+    background-color: tomato;
+}
+
+.warning {
+    color: #298135;
+}
+
+.danger {
+    color: red;
+}
+
+.btn {
+    margin: 10px;
+    padding: 10px;
+}
