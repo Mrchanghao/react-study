@@ -2,7 +2,7 @@ import React from 'react';
 
 const QuizOption = (props) => {
 		return (
-			<div className='fields' onClick={props.checkResult}>
+			<div className='fields animated zoomIn' onClick={props.checkResult}>
 				<div className='field-block'>{props.result}</div>
 			</div>
 		)

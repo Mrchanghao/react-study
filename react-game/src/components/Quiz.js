@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/layout.css';
 import QuizOption from './QuizOption';
-
+import classNames from 'classnames'
 
 class Quiz extends Component {
 
@@ -18,6 +18,9 @@ class Quiz extends Component {
 		}
 		this.renderOptions = this.renderOptions.bind(this);
 		this.checkResult = this.checkResult.bind(this);
+		this.renderMessage = this.renderMessage.bind(this)
+		this.playGame = this.playGame.bind(this)
+		this.play = this.play.bind(this)
 	}
 	randomNumber(min, max) {
 		return Math.floor(Math.random() * (max- min + 1)) + min;
@@ -70,7 +73,12 @@ class Quiz extends Component {
 			field2,
 			answer
 		}
-		return riddle
+
+		if(this.state && this.state.riddle) {
+			this.setState({riddle})
+		} else {
+			return riddle
+		}
 	}
 
 	checkResult(option) {
@@ -99,19 +107,48 @@ class Quiz extends Component {
 		)
 	}
 
+	renderMessage() {
+		if(this.state.correct) {
+			return (
+				<h3>you are <b>correct</b>! hit the play again Button</h3>
+			)
+		} else {
+			return (
+				<h3>you are <b>wrong</b>! hit the play again Button</h3>	
+			)
+		}
+	}
+
+	play() {
+		this.setState({
+			correct: false,
+			gameOver: false
+		})
+		this.playGame();
+	}
+
 	render() {
 		return (
 			<div className='quiz'>
 				<div className='quiz-content'>
-					<p className='question'>What is the sum of 
-					<span className='text-info'> {this.state.riddle.field1}</span> and
-					 <span className='text-info'> {this.state.riddle.field2}</span>?</p>
+					<p className='question'> 
+					<span className='text-info'> {this.state.riddle.field1}</span> 더하기
+					 <span className='text-info'> {this.state.riddle.field2}</span>의 값은?</p>
 					{this.renderOptions()}
 					<p className='status'>correct: {this.state.correct ? 'Correct' : 'Wrong'} </p>
 					<p className='status'>gameOver: {this.state.gameOver ? 'gameOver' : 'not yet'} </p>
 				</div>
+				<div className={classNames("after", 
+				{"hide": !this.state.gameOver}, 
+				{"wrong animated rubberBand": !this.state.correct}, 
+				{"correct animated rubberBand": this.state.correct}
+				)}>
+					{this.renderMessage()}
+				</div>
 				<div className='play-again'>
-					<button className='button'>재시작</button>
+					<button
+					onClick={this.play}
+					className='button'>Play Again</button>
 				</div>
 			</div>
 		)
