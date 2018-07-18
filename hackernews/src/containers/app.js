@@ -22,7 +22,6 @@ const list = [
     objectID: 1
   }
 ]
-
 // function isSearched(searchTerm) {
 //   return function(item) {
 //     // true or false
@@ -48,8 +47,7 @@ class App extends Component {
       // })
       const isNotId = item => item.objectID !== id;
       const updatedHits = this.state.result.hits.filter(isNotId);
-      this.setState({result: Object.assign({}, this.state.result, 
-        {hits: updatedHits})})
+      this.setState({result: {...this.state.result, hits: updatedHits}})
     }
     onSearchChange(e) {
       this.setState({searchTerm: e.target.value})
@@ -73,8 +71,9 @@ class App extends Component {
             <div className='interactions'>
               <Search value={searchTerm} onChange={this.onSearchChange}>Search</Search>
             </div>
-            <Table list={result.hits} pattern={searchTerm} onDismiss={this.onDismiss} />
-            
+            {result && 
+            <Table list={result.hits} pattern={searchTerm} onDismiss={this.onDismiss} />  
+          }
           </div>
         );
     }
