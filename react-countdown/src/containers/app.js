@@ -9,7 +9,7 @@ class App extends Component {
       const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 24) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
 
         return (
-          <div>
+          <div className='App'>
             <h3>크리스마스 Coming Soon~~!!</h3>
             <CountDown date={`${year}-12-25`} />
           </div>
