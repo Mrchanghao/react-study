@@ -9,7 +9,7 @@ class Home extends Component {
                 <p className='home-info'>
                     lorem>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed d
                 </p>
-                <Navigation />
+                <Navigation days={this.props.days} />
             </div>
         );
     }
