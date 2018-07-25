@@ -18,14 +18,14 @@ import Button from './UI/Button';
 //     }
 // }
 
-const Search = ({children, value, onChange}) => (
-    <form>
-        {children}
+const Search = ({children, value, onSubmit, onChange}) => (
+    <form onSubmit={onSubmit}>
+        
         <input type='text'
         value={value}
         onChange={onChange}
         />
-        <Button>submit</Button>
+        <Button>{children}</Button>
     </form>
 )
 

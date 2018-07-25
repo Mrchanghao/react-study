@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button from './UI/Button'
 import '../styles/app.css'
+
+
 const isSearched = searchTerm => item => item.title.toLowerCase().includes(searchTerm.toLowerCase())
 
 class Table extends Component {
