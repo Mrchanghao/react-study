@@ -40,6 +40,7 @@ class App extends Component {
       this.onDismiss = this.onDismiss.bind(this);
       this.onSearchChange = this.onSearchChange.bind(this);
       this.setSearchTopStories = this.setSearchTopStories.bind(this)
+      this.onSearchSubmit = this.onSearchSubmit.bind(this);
     }
     onDismiss(id) {
       // const updatedList = this.state.result.hits.filter((item) => {
@@ -55,6 +56,11 @@ class App extends Component {
     setSearchTopStories(result) {
       this.setState({result})
     }
+
+    onSearchSubmit() {
+      const {searchTerm} = this.state;
+    }
+
     componentDidMount() {
       const {searchTerm} = this.state;
       fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}`)
