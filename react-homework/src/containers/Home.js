@@ -17,6 +17,9 @@ class Home extends Component {
                 this.withMainDrawer = this.withMainDrawer.bind(this)
     }
     
+    shouldComponentUpdate() {
+        return false;
+    }
     
 	register(memberShipType) {
 		alert('가입되었습니다')

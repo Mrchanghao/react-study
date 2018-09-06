@@ -13,7 +13,7 @@ const store = createStore(
     memberShip: memberShipReducer
 }),
 compose()
-window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+)
 
 ReactDOM.render(<Provider store={store}><Home /></Provider>, document.getElementById('root'))
 

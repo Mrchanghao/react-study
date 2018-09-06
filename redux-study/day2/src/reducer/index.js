@@ -40,3 +40,13 @@ export const todoApp = combineReducers({
     todo,
     visibilityFilter
 })
+
+
+
+// example 
+
+fetchSomeData((err, data) => {
+    if(!err) {
+        dispatch({type: 'HERES_DATA', data})
+    } 
+})
