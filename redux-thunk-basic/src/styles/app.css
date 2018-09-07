@@ -1,0 +1,23 @@
+body {
+    color: #27aedb;
+}
+
+button {
+    width: 4rem;
+    height: 3rem;
+    border-radius: 5px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
